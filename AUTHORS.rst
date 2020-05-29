@@ -2,4 +2,4 @@
 Contributors
 ============
 
-* raphael <raphael.keita@openlane.com>
+* raphael <devops.raphael@gmail.com>

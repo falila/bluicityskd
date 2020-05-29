@@ -5,7 +5,6 @@ certifi==2020.4.5.1
 chardet==3.0.4
 click==7.1.1
 coverage==5.0.4
--e git+http://github.nw.adesa.com/new-wave/nw-cli-integ.git@c5216bed9482a28aa7ff6311159884c6a568e687#egg=e2e
 idna==2.9
 importlib-metadata==1.6.0
 isort==4.3.21

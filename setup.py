@@ -6,10 +6,10 @@ setup(
     name='blu',
     version='0.1.0',
     license='proprietary',
-    description='New Wave integration CLI',
+    description='Bluicity',
 
     author='Raphael KEITA',
-    author_email='raphael.keita@openlane.com',
+    author_email='falila.basket@gmail.com',
     url='',
 
     packages=find_packages(where='src'),

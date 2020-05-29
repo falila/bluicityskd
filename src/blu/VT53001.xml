@@ -1,0 +1,103 @@
+<report lang="en" name="Bluicity" tz="-100550224">
+	<stats/>
+	<tables>
+		<table cols="6" flags="16777216" id="unit_sensors_tracing" name="Sensor tracing" rows="11">
+			<header>
+				<col name="Speed"/>
+				<col name="Coordinates"/>
+				<col name="Location"/>
+				<col name="Sensor"/>
+				<col name="Value"/>
+				<col name="Time"/>
+			</header>
+			<row>
+				<col txt="0 km/h" val="0" vt="20"/>
+				<col txt="43.226659, -79.685904" val="0" vt="0"/>
+				<col txt="S Service Rd 791, Stoney Creek, ON L8E, Canada" val="0" vt="1"/>
+				<col txt="Trailer Battery" val="0" vt="0"/>
+				<col txt="12.22" val="12.220000" vt="3"/>
+				<col txt="2020-05-29 00:36:45" val="1590727005" vt="30"/>
+			</row>
+			<row>
+				<col txt="0 km/h" val="0" vt="20"/>
+				<col txt="43.226659, -79.685904" val="0" vt="0"/>
+				<col txt="S Service Rd 791, Stoney Creek, ON L8E, Canada" val="0" vt="1"/>
+				<col txt="Trip Odometer" val="0" vt="0"/>
+				<col txt="0.00" val="0" vt="3"/>
+				<col txt="2020-05-29 00:36:45" val="1590727005" vt="30"/>
+			</row>
+			<row>
+				<col txt="0 km/h" val="0" vt="20"/>
+				<col txt="43.226659, -79.685904" val="0" vt="0"/>
+				<col txt="S Service Rd 791, Stoney Creek, ON L8E, Canada" val="0" vt="1"/>
+				<col txt="Backup Battery" val="0" vt="0"/>
+				<col txt="4.17" val="4.174000" vt="3"/>
+				<col txt="2020-05-29 00:36:45" val="1590727005" vt="30"/>
+			</row>
+			<row>
+				<col txt="0 km/h" val="0" vt="20"/>
+				<col txt="43.226659, -79.685904" val="0" vt="0"/>
+				<col txt="S Service Rd 791, Stoney Creek, ON L8E, Canada" val="0" vt="1"/>
+				<col txt="Number of Temp Sensors" val="0" vt="0"/>
+				<col txt="3.00" val="3" vt="3"/>
+				<col txt="2020-05-29 00:36:45" val="1590727005" vt="30"/>
+			</row>
+			<row>
+				<col txt="0 km/h" val="0" vt="20"/>
+				<col txt="43.226659, -79.685904" val="0" vt="0"/>
+				<col txt="S Service Rd 791, Stoney Creek, ON L8E, Canada" val="0" vt="1"/>
+				<col txt="Front Lower Temp Sensor" val="0" vt="0"/>
+				<col txt="69.46" val="69.462500" vt="3"/>
+				<col txt="2020-05-29 00:36:45" val="1590727005" vt="30"/>
+			</row>
+			<row>
+				<col txt="0 km/h" val="0" vt="20"/>
+				<col txt="43.226659, -79.685904" val="0" vt="0"/>
+				<col txt="S Service Rd 791, Stoney Creek, ON L8E, Canada" val="0" vt="1"/>
+				<col txt="Front Upper Temp Sensor" val="0" vt="0"/>
+				<col txt="69.35" val="69.350000" vt="3"/>
+				<col txt="2020-05-29 00:36:45" val="1590727005" vt="30"/>
+			</row>
+			<row>
+				<col txt="0 km/h" val="0" vt="20"/>
+				<col txt="43.226659, -79.685904" val="0" vt="0"/>
+				<col txt="S Service Rd 791, Stoney Creek, ON L8E, Canada" val="0" vt="1"/>
+				<col txt="Rear Upper Temp Sensor" val="0" vt="0"/>
+				<col txt="68.34" val="68.337500" vt="3"/>
+				<col txt="2020-05-29 00:36:45" val="1590727005" vt="30"/>
+			</row>
+			<row>
+				<col txt="0 km/h" val="0" vt="20"/>
+				<col txt="43.226659, -79.685904" val="0" vt="0"/>
+				<col txt="S Service Rd 791, Stoney Creek, ON L8E, Canada" val="0" vt="1"/>
+				<col txt="Reefer Engine Status" val="0" vt="0"/>
+				<col txt="0.00" val="0" vt="3"/>
+				<col txt="2020-05-29 00:36:45" val="1590727005" vt="30"/>
+			</row>
+			<row>
+				<col txt="0 km/h" val="0" vt="20"/>
+				<col txt="43.226659, -79.685904" val="0" vt="0"/>
+				<col txt="S Service Rd 791, Stoney Creek, ON L8E, Canada" val="0" vt="1"/>
+				<col txt="T0" val="0" vt="0"/>
+				<col txt="20.81" val="20.812500" vt="3"/>
+				<col txt="2020-05-29 00:36:45" val="1590727005" vt="30"/>
+			</row>
+			<row>
+				<col txt="0 km/h" val="0" vt="20"/>
+				<col txt="43.226659, -79.685904" val="0" vt="0"/>
+				<col txt="S Service Rd 791, Stoney Creek, ON L8E, Canada" val="0" vt="1"/>
+				<col txt="T1" val="0" vt="0"/>
+				<col txt="20.75" val="20.750000" vt="3"/>
+				<col txt="2020-05-29 00:36:45" val="1590727005" vt="30"/>
+			</row>
+			<row>
+				<col txt="0 km/h" val="0" vt="20"/>
+				<col txt="43.226659, -79.685904" val="0" vt="0"/>
+				<col txt="S Service Rd 791, Stoney Creek, ON L8E, Canada" val="0" vt="1"/>
+				<col txt="T2" val="0" vt="0"/>
+				<col txt="20.19" val="20.187500" vt="3"/>
+				<col txt="2020-05-29 00:36:45" val="1590727005" vt="30"/>
+			</row>
+		</table>
+	</tables>
+</report>

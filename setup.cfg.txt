@@ -6,7 +6,7 @@
 name = blu
 description = Add a short description here!
 author = raphael
-author-email = raphael.keita@openlane.com
+author-email = devops.raphael@gmail.com
 license = mit
 long-description = file: README.rst
 long-description-content-type = text/x-rst; charset=UTF-8
@@ -53,7 +53,7 @@ testing =
 [options.entry_points]
 # Add here console scripts like:
 # console_scripts =
-#     script_name = bluicityskd.nw:main
+#     script_name = bluicityskd.src.blu.api:main
 # For example:
 # console_scripts =
 #     fibonacci = bluicityskd.skeleton:run
