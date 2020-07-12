@@ -1,0 +1,20 @@
+--
+suntechConfig : 
+    ApiUrl : 
+    Token :
+    passWord:
+    userName:
+--
+bluicity:
+    cloud :
+        endpoint:
+        hostName:
+        dbName:
+        Token:
+    notifications :
+        headers : "Speed, Coordinates, Locat, Sensor, valuess, Timess"
+        retryOnFail : True
+        skipOnFail : False
+        RunForEver : False
+        forceSync :  
+        
