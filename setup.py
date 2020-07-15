@@ -19,7 +19,7 @@ setup(
 
     entry_points={
         'console_scripts': [
-            'blu = blu.cli:blu_cli',
+            'blu = blu.main_worker:main',
         ]
     },
 )
