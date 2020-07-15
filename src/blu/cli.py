@@ -1,6 +1,8 @@
 
 import click
-from blu.db import sync_notification
+
+#deprecated 
+#TO BE DELETED
 
 CONTEXT_SETTINGS = dict(token_normalize_func=lambda x: x.lower(),ignore_unknown_options=True)
 
@@ -15,7 +17,7 @@ def blu_cli(ctx):
 @click.pass_context
 def sync(ctx, r):
     """sync notifications suntech cloud vs bluicity"""
-    sync_notifcation()
+    pass
 
 
 if __name__ == '__main__':

@@ -6,5 +6,7 @@ Version 0.1
 ===========
 
 - Feature A added
-- FIX: nasty bug #1729 fixed
+    - tracker data collector from gmail
+- FIX: nasty bug ---fixed
+
 - add your changes here!

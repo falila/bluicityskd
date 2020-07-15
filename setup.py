@@ -15,7 +15,7 @@ setup(
     packages=find_packages(where='src'),
     package_dir={'': 'src'},
 
-    install_requires=['click', 'requests', 'pathlib'],
+    install_requires=['click', 'requests', 'pathlib', 'psycopg2','SQLAlchemy','imap-tools',''],
 
     entry_points={
         'console_scripts': [
