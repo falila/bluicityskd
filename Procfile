@@ -1,2 +1,2 @@
 release: chmod u+x release-tasks.sh && ./release-tasks.sh
-worker: blu
+worker: python src/blu/main_worker.py
