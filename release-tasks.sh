@@ -1,2 +1,2 @@
 #!/bin/sh
-pip install -e .
+python setup.py install
