@@ -75,7 +75,7 @@
 				<col txt="2020-05-29 00:36:45" val="1590727005" vt="30"/>
 			</row>
 			<row>
-				<col txt="0 km/h" val="0" vt="20"/>
+				<col txt "0 km/h" val="0" vt="20"/>
 				<col txt="43.226659, -79.685904" val="0" vt="0"/>
 				<col txt="S Service Rd 791, Stoney Creek, ON L8E, Canada" val="0" vt="1"/>
 				<col txt="T0" val="0" vt="0"/>

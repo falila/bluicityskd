@@ -1,6 +1,6 @@
 
 import click
-from blu.api import sync_notification
+from blu.db import sync_notification
 
 CONTEXT_SETTINGS = dict(token_normalize_func=lambda x: x.lower(),ignore_unknown_options=True)
 
@@ -14,7 +14,7 @@ def blu_cli(ctx):
 @click.option('--r', is_flag=True, help='Print the report')
 @click.pass_context
 def sync(ctx, r):
-    """sync notifications suntech cloud vs blucity"""
+    """sync notifications suntech cloud vs bluicity"""
     sync_notifcation()
 
 

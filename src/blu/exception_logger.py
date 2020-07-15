@@ -5,7 +5,7 @@ def create_logger():
     """
     Creates a logging object and returns it
     """
-    logger = logging.getLogger("e2e_logger")
+    logger = logging.getLogger("bluicity")
     logger.setLevel(logging.DEBUG)
     file = os.path.expanduser('~/logs.log')
     # create the logging file handler
