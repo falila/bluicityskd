@@ -67,6 +67,7 @@ def clear_download_dir():
 
 
 def main():
+    logger.debug('Starting main worker...')
     global file_list , stop_threads
     file_list = []
     logger.debug('getting env variable')
