@@ -130,7 +130,7 @@ def main():
             logger.info('Took %s seconds', time() - ts)
         else:
             logger.info('No files have been found')
-        sleeper.sleep(60)
+        sleeper.sleep(240) # 4 min
         logger.info('Re-starting')
 
 if __name__ == "__main__":
