@@ -55,7 +55,7 @@ def fetch_emails(tracker_file_dir=None, email=None, password=None):
             #marked unseen email as seen
             mailbox.seen(_result_iterator, True)
             logger.info("logout...")
-    mailbox.logout()
+    #mailbox.logout()
 
 def clear_download_dir():
     logger.debug("attempt to clean downloaded folder")
