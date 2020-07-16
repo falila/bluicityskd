@@ -79,7 +79,7 @@ def main():
         logger.debug(f"Couldn't find db configuration environment variable {db_connexion_url}")
         raise Exception("Couldn't find db configuration environment variable!")
     
-    if not gmail_user or gmail_password:
+    if not gmail_user or not gmail_password:
         logger.debug(f"Couldn't find gmail_password or gmail_user configuration environment variable {db_connexion_url}")
         raise Exception("Couldn't find gmail_password or gmail_user configuration environment variable!")
   
