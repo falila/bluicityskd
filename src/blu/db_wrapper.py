@@ -1,5 +1,6 @@
 from sqlalchemy import create_engine  
-from sqlalchemy import Column, String ,Integer
+import sqlalchemy as sa
+from sqlalchemy import Column, String ,Integer , DateTime
 from sqlalchemy.ext.declarative import declarative_base  
 from sqlalchemy.orm import sessionmaker
 from contextlib import contextmanager
@@ -13,12 +14,13 @@ class Tracker(Base):
         coordinates = Column(String)
         locat = Column(String)
         sensor = Column(String)
-        valuess = Column(String)
-        timess = Column(String)
+        data = Column(String)
+        local_time = Column(DateTime)
+        time_created = Column(DateTime, server_default=sa.sql.func.now())
 
         def __repr__(self):
-            return "<Tracker(sensor='{}', speed='{}', value={}, times={})>"\
-                .format(self.sensor, self.speed, self.valuess, self.timess)
+            return "<Tracker(sensor='{}', speed='{}', locat={} , value={}, times={})>"\
+                .format(self.sensor, self.speed, self.locat ,self.data, self.local_time)
 
 class Wrapper():
     global Base

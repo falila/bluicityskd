@@ -1,7 +1,8 @@
 import requests
 import xml.etree.ElementTree as ET
 import collections
-import os
+import os , traceback,sys
+from datetime import datetime
 from blu.exception_logger import logger
 from queue import Queue
 from threading import Thread
@@ -9,7 +10,7 @@ from pathlib import Path
 from blu.db_wrapper import Wrapper ,Tracker
 
 
-Notification = collections.namedtuple('Notification',['speed','coordinates','locat','sensor','valuess','timess'])
+Notification = collections.namedtuple('Notification',['speed','coordinates','locat','sensor','data','local_time'])
 
 Notification.__new__.__defaults__=(None,None,None,None,None,None)
 
@@ -56,7 +57,17 @@ class Worker(Thread):
         for item in root.findall('./tables/table/row'):
             notif = []
             for child in item:
-                notif.append(child.attrib['txt'])       
+                if child.attrib['val'] and len(child.attrib['val']) == 10:
+                    try:
+                        timestamp = datetime.fromtimestamp(int(child.attrib['val']))
+                        notif.append(timestamp)
+                    except Exception as e:
+                        logger.debug(f"attempted to convert timestamp value but failed")
+                        logger.debug(e)
+                        exc_type, exc_value, exc_tb = sys.exc_info()
+                        traceback.print_exception(exc_type, exc_value, exc_tb)
+                else :
+                    notif.append(child.attrib['txt']) 
             sensors_notifications.append(Notification._make(notif))
         
         return sensors_notifications
@@ -69,7 +80,7 @@ class Worker(Thread):
         for notif in notifications:
             records.append((Tracker(speed=notif.speed, 
                                         coordinates=notif.coordinates,
-                                        sensor=notif.sensor,valuess=notif.valuess,timess=notif.timess)))
+                                        sensor=notif.sensor, locat=notif.locat , data=notif.data, local_time=notif.local_time)))
             
         self.db_wrapper.add_records(records)
         logger.debug(f"{len(records)} records saved")

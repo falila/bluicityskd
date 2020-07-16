@@ -36,27 +36,29 @@ def setup_download_dir():
 def fetch_emails(tracker_file_dir=None, email=None, password=None):
     from imap_tools import MailBox
     logger.info(f'fetching emails')
-    logger.debug(f' tracker file repo {trackerfile_dir_path}')
+    logger.debug(f'tracker file repo {trackerfile_dir_path}')
 
     logger.info(f"gmail login")
+    is_email_founded = False
     # get list of email subjects from INBOX folder
     with MailBox('imap.gmail.com').login(email, password) as mailbox:
             #subjects = [msg.subject for msg in mailbox.fetch('(SEEN)')]
             _result_iterator = mailbox.fetch('(UNSEEN)')
+            
             for msg in _result_iterator:
-
+                is_email_founded = True
                 for att in msg.attachments:  # list: [Attachment]
                     ext = os.path.splitext(att.filename)[-1].lower()
                     if ext == ".xml":
                         logger.info(f"file found {att.filename}")
                         download_attachment(trackerfile_dir_path, att.filename, att.payload)
                         file_list.append(att.filename)
-                    else:
-                        # logger.info(f'DO NOT PROCESS -- {att.filename}')
-                        pass
             #marked unseen email as seen
-            logger.info(f"marked unseen email as seen")
-            mailbox.seen(_result_iterator, True)
+            if is_email_founded:
+
+                logger.info(f"marked unseen email as seen")
+                mailbox.seen(_result_iterator, True)
+                is_email_founded = False
             logger.info("emails treatment is done !")
     #mailbox.logout()
 
@@ -80,7 +82,7 @@ def main():
     logger.debug('Starting main worker...')
     global file_list , stop_threads
     file_list = []
-    logger.debug('getting env variable')
+    logger.debug('Getting env variables ...')
     db_connexion_url = os.getenv('B_DB_URL')
     gmail_user = os.getenv('GMAIL_USER')
     gmail_password = os.getenv('GMAIL_PASSWORD')
@@ -95,6 +97,7 @@ def main():
   
 
     # Create a queue to communicate with the worker threads
+    logger.debug('Starting up Queues...')
     queue = Queue()
         # Create 8 worker threads
     worker_list = []
@@ -122,16 +125,18 @@ def main():
         if len(file_list) > 0 :
             # Put the tasks into the queue as a tuple
             for _file in file_list:
-                logger.debug('Queueing {}'.format(_file))
+                logger.debug('Queueing file {}'.format(_file))
                 queue.put((trackerfile_dir_path, _file))
             
             file_list = []
         
             logger.info('Took %s seconds', time() - ts)
         else:
-            logger.info('No files have been found yet')
-        sleeper.sleep(240) # 4 min
-        logger.info('Re-starting')
+            logger.info('No file has been found yet')
+        sleep_time = 240 # 4 min
+        logger.info('Going for a nap of {sleep_time/60} minute')
+        sleeper.sleep(sleep_time) 
+        logger.info('waking up...')
 
 if __name__ == "__main__":
     main()
