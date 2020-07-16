@@ -38,6 +38,7 @@ def fetch_emails(tracker_file_dir=None, email=None, password=None):
     logger.info(f'fetching emails')
     logger.debug(f' tracker file repo {trackerfile_dir_path}')
 
+    logger.info(f"gmail login")
     # get list of email subjects from INBOX folder
     with MailBox('imap.gmail.com').login(email, password) as mailbox:
             #subjects = [msg.subject for msg in mailbox.fetch('(SEEN)')]
@@ -47,14 +48,16 @@ def fetch_emails(tracker_file_dir=None, email=None, password=None):
                 for att in msg.attachments:  # list: [Attachment]
                     ext = os.path.splitext(att.filename)[-1].lower()
                     if ext == ".xml":
+                        logger.info(f"file found {att.filename}")
                         download_attachment(trackerfile_dir_path, att.filename, att.payload)
                         file_list.append(att.filename)
                     else:
                         # logger.info(f'DO NOT PROCESS -- {att.filename}')
                         pass
             #marked unseen email as seen
+            logger.info(f"marked unseen email as seen")
             mailbox.seen(_result_iterator, True)
-            logger.info("logout...")
+            logger.info("emails treatment is done !")
     #mailbox.logout()
 
 def clear_download_dir():
@@ -62,6 +65,7 @@ def clear_download_dir():
     import glob, os, os.path
 
     filelist = glob.glob(os.path.join(trackerfile_dir_path, "*.xml"))
+    logger.debug(f"download folder {filelist} ")
     try:
         for f in filelist:
             logger.debug(f"deleting {f} ")
@@ -102,9 +106,10 @@ def main():
         worker_list.append(worker)
         # Put the tasks into the queue as a tuple
 
+    tracker_file_dir = setup_download_dir()
+
     while True :
         ts = time()
-        tracker_file_dir = setup_download_dir()
         
         try:
             clear_download_dir()
@@ -123,7 +128,9 @@ def main():
             file_list = []
         
             logger.info('Took %s seconds', time() - ts)
-        sleeper.sleep(300)
+        else:
+            logger.info('No files have been found')
+        sleeper.sleep(60)
         logger.info('Re-starting')
 
 if __name__ == "__main__":
