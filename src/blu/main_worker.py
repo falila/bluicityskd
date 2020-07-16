@@ -1,6 +1,6 @@
 import email
 import imaplib
-import os
+import os , traceback
 import shutil
 from time import time
 import time as sleeper
@@ -62,8 +62,14 @@ def clear_download_dir():
     import glob, os, os.path
 
     filelist = glob.glob(os.path.join(trackerfile_dir_path, "*.xml"))
-    for f in filelist:
-        os.remove(f)
+    try:
+        for f in filelist:
+            logger.debug(f"deleting {f} ")
+            os.remove(f)
+    except Exception as e:
+        logger.debug(e)
+        exc_type, exc_value, exc_tb = sys.exc_info()
+        traceback.print_exception(exc_type, exc_value, exc_tb)
 
 
 def main():
@@ -88,7 +94,7 @@ def main():
     queue = Queue()
         # Create 8 worker threads
     worker_list = []
-    for x in range(4):
+    for x in range(2):
         worker = Worker(x,queue,db_string=db_connexion_url)
         # Setting daemon to True will let the main thread exit even though the workers are blocking
         worker.daemon = True
@@ -105,6 +111,8 @@ def main():
             fetch_emails(tracker_file_dir,email=gmail_user, password=gmail_password)
         except Exception as e :
             logger.debug(e)
+            exc_type, exc_value, exc_tb = sys.exc_info()
+            traceback.print_exception(exc_type, exc_value, exc_tb)
 
         if len(file_list) > 0 :
             # Put the tasks into the queue as a tuple
@@ -115,7 +123,7 @@ def main():
             file_list = []
         
             logger.info('Took %s seconds', time() - ts)
-        sleeper.sleep(60)
+        sleeper.sleep(300)
         logger.info('Re-starting')
 
 if __name__ == "__main__":
