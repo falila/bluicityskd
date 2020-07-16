@@ -33,13 +33,13 @@ def setup_download_dir():
         download_dir.mkdir()
     return download_dir
 
-def fetch_emails(tracker_file_dir=None):
+def fetch_emails(tracker_file_dir=None, email=None, password=None):
     from imap_tools import MailBox
     logger.info(f'fetching emails')
     logger.debug(f' tracker file repo {trackerfile_dir_path}')
 
     # get list of email subjects from INBOX folder
-    with MailBox('imap.gmail.com').login('bluicity.test@gmail.com', 'Bluicitytest') as mailbox:
+    with MailBox('imap.gmail.com').login(email, password) as mailbox:
             #subjects = [msg.subject for msg in mailbox.fetch('(SEEN)')]
             _result_iterator = mailbox.fetch('(UNSEEN)')
             for msg in _result_iterator:
@@ -72,11 +72,17 @@ def main():
     file_list = []
     logger.debug('getting env variable')
     db_connexion_url = os.getenv('B_DB_URL')
+    gmail_user = os.getenv('GMAIL_USER')
+    gmail_password = os.getenv('GMAIL_PASSWORD')
 
     if not db_connexion_url:
         logger.debug(f"Couldn't find db configuration environment variable {db_connexion_url}")
         raise Exception("Couldn't find db configuration environment variable!")
     
+    if not gmail_user or gmail_password:
+        logger.debug(f"Couldn't find gmail_password or gmail_user configuration environment variable {db_connexion_url}")
+        raise Exception("Couldn't find gmail_password or gmail_user configuration environment variable!")
+  
 
     # Create a queue to communicate with the worker threads
     queue = Queue()
@@ -96,7 +102,7 @@ def main():
         
         try:
             clear_download_dir()
-            fetch_emails(tracker_file_dir)
+            fetch_emails(tracker_file_dir,email=gmail_user, password=gmail_password)
         except Exception as e :
             logger.debug(e)
 
