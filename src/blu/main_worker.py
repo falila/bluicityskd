@@ -134,7 +134,7 @@ def main():
         else:
             logger.info('No file has been found yet')
         sleep_time = 240 # 4 min
-        logger.info('Going for a nap of {sleep_time/60} minute')
+        logger.info(f'Going for a nap of {sleep_time/60} minute')
         sleeper.sleep(sleep_time) 
         logger.info('waking up...')
 
