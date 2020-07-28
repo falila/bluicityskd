@@ -10,17 +10,17 @@ class Tracker(Base):
         __tablename__ = 'Tracker'
 
         ids =  Column(Integer,primary_key=True)
-        speed = Column(String)
+        unit_name = Column(String)
         coordinates = Column(String)
         locat = Column(String)
-        sensor = Column(String)
-        data = Column(String)
+        sensor_serial = Column(String)
+        sensor_temp = Column(String)
         local_time = Column(DateTime)
         time_created = Column(DateTime, server_default=sa.sql.func.now())
 
         def __repr__(self):
-            return "<Tracker(sensor='{}', speed='{}', locat={} , value={}, times={})>"\
-                .format(self.sensor, self.speed, self.locat ,self.data, self.local_time)
+            return "<Tracker(unit_name='{}',sensor_serial='{}', locat={} , sensor_temp={}, times={})>"\
+                .format(self.unit_name, self.sensor_serial, self.locat ,self.sensor_temp, self.local_time)
 
 class Wrapper():
     global Base

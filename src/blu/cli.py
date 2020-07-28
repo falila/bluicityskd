@@ -1,8 +1,6 @@
 
 import click
 
-#deprecated 
-#TO BE DELETED
 
 CONTEXT_SETTINGS = dict(token_normalize_func=lambda x: x.lower(),ignore_unknown_options=True)
 

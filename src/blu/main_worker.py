@@ -83,17 +83,20 @@ def main():
     global file_list , stop_threads
     file_list = []
     logger.debug('Getting env variables ...')
-    db_connexion_url = os.getenv('B_DB_URL')
-    gmail_user = os.getenv('GMAIL_USER')
-    gmail_password = os.getenv('GMAIL_PASSWORD')
+    #db_connexion_url = os.getenv('B_DB_URL')
+    #gmail_user = os.getenv('GMAIL_USER')
+    #gmail_password = os.getenv('GMAIL_PASSWORD')
+    db_connexion_url = "postgres://jesoqxvudstwby:a6773761783fdd58379f130c973c1c843c8ccef256a3d8e1f7a45f0779e295f1@ec2-35-174-127-63.compute-1.amazonaws.com:5432/d41leq61vqult3"
+    gmail_user = "bluicity.test@gmail.com" #os.getenv('GMAIL_USER')
+    gmail_password = "pjviqhhvnrqlnoqr" #os.getenv('GMAIL_PASSWORD')
 
     if not db_connexion_url:
-        logger.debug(f"Couldn't find db configuration environment variable {db_connexion_url}")
-        raise Exception("Couldn't find db configuration environment variable!")
+        logger.debug(f"Couldn't find db config in environment variables {db_connexion_url}")
+        raise Exception("Couldn't find db url config in environment variables!")
     
     if not gmail_user or not gmail_password:
-        logger.debug(f"Couldn't find gmail_password or gmail_user configuration environment variable {db_connexion_url}")
-        raise Exception("Couldn't find gmail_password or gmail_user configuration environment variable!")
+        logger.debug(f"Couldn't find gmail_password or gmail_user in  environment variables {db_connexion_url}")
+        raise Exception("Couldn't find gmail_password or gmail_user in  environment variables!")
   
 
     # Create a queue to communicate with the worker threads
@@ -133,7 +136,7 @@ def main():
             logger.info('Took %s seconds', time() - ts)
         else:
             logger.info('No file has been found yet')
-        sleep_time = 240 # 4 min
+        sleep_time = 20 # 4 min
         logger.info(f'Going for a nap of {sleep_time/60} minute')
         sleeper.sleep(sleep_time) 
         logger.info('waking up...')

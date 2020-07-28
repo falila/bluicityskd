@@ -10,9 +10,9 @@ from pathlib import Path
 from blu.db_wrapper import Wrapper ,Tracker
 
 
-Notification = collections.namedtuple('Notification',['speed','coordinates','locat','sensor','data','local_time'])
+Notification = collections.namedtuple('Notification',['local_time','coordinates','locat','sensor','data'])
 
-Notification.__new__.__defaults__=(None,None,None,None,None,None)
+Notification.__new__.__defaults__=(None,None,None,None,None)
 
 from os import listdir
 from os.path import isfile, join
@@ -76,14 +76,30 @@ class Worker(Thread):
     def save_to_db(self, directory, filename):
         download_path = os.path.join(directory, filename)
         notifications = self._parseXML(Path(download_path))
-        records = []
+        records_to_save = []
+        #extract unit nam from filename
+        unit_name = filename.split('_')[0]
+        _records = []
         for notif in notifications:
-            records.append((Tracker(speed=notif.speed, 
+            if len(_records) == 2 :
+                beacon_type = _records[0].data if "Serial" in  _records[0].sensor else _records[1].data
+                beacon_temp = _records[1].data
+                # due to the file inconsistency we try our best to guess it 
+                if "Temp" in _records[1].sensor :
+                    beacon_temp = _records[1].data
+                else :
+                    beacon_temp =  "N/A" 
+
+                records_to_save.append((Tracker(unit_name=unit_name,
                                         coordinates=notif.coordinates,
-                                        sensor=notif.sensor, locat=notif.locat , data=notif.data, local_time=notif.local_time)))
+                                        locat=notif.locat ,sensor_serial=beacon_type, sensor_temp=beacon_temp, local_time=notif.local_time)))
+                _records.clear()
+            else:
+                _records.append(notif)
             
-        self.db_wrapper.add_records(records)
-        logger.debug(f"{len(records)} records saved")
+        
+        self.db_wrapper.add_records(records_to_save)
+        logger.debug(f"{len(records_to_save)} records saved")
            
 if __name__ == "__main__":
     pass
