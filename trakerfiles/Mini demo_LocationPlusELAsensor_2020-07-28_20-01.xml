@@ -1,0 +1,126 @@
+<report lang="en" name="LocationPlusELAsensor" tz="-100550224">
+	<stats/>
+	<tables>
+		<table cols="5" flags="16777216" id="unit_sensors_tracing" name="Sensor tracing" rows="16">
+			<header>
+				<col name="Time"/>
+				<col name="Coordinates"/>
+				<col name="Location"/>
+				<col name="Sensor"/>
+				<col name="Formatted value"/>
+			</header>
+			<row>
+				<col txt="07-28-2020 07:56:12 pm" val="1595980572" vt="30"/>
+				<col txt="43.857362, -79.236325" val="0" vt="0"/>
+				<col txt="7 Upper Ridge Ct, Markham, ON L3S, Canada" val="0" vt="1"/>
+				<col txt="Temperature" val="0" vt="0"/>
+				<col txt="77.54 °F" val="0" vt="0"/>
+			</row>
+			<row>
+				<col txt="07-28-2020 07:56:12 pm" val="1595980572" vt="30"/>
+				<col txt="43.857362, -79.236325" val="0" vt="0"/>
+				<col txt="7 Upper Ridge Ct, Markham, ON L3S, Canada" val="0" vt="1"/>
+				<col txt="Temp Tag ID" val="0" vt="0"/>
+				<col txt="&quot;CT80083B&quot;" val="0" vt="0"/>
+			</row>
+			<row>
+				<col txt="07-28-2020 07:56:22 pm" val="1595980582" vt="30"/>
+				<col txt="43.857372, -79.236332" val="0" vt="0"/>
+				<col txt="7 Upper Ridge Ct, Markham, ON L3S, Canada" val="0" vt="1"/>
+				<col txt="Temperature" val="0" vt="0"/>
+				<col txt="77.54 °F" val="0" vt="0"/>
+			</row>
+			<row>
+				<col txt="07-28-2020 07:56:22 pm" val="1595980582" vt="30"/>
+				<col txt="43.857372, -79.236332" val="0" vt="0"/>
+				<col txt="7 Upper Ridge Ct, Markham, ON L3S, Canada" val="0" vt="1"/>
+				<col txt="Temp Tag ID" val="0" vt="0"/>
+				<col txt="&quot;CT80083B&quot;" val="0" vt="0"/>
+			</row>
+			<row>
+				<col txt="07-28-2020 08:00:01 pm" val="1595980801" vt="30"/>
+				<col txt="43.857367, -79.236183" val="0" vt="0"/>
+				<col txt="6 Upper Ridge Ct, Markham, ON L3S, Canada" val="0" vt="1"/>
+				<col txt="Temperature" val="0" vt="0"/>
+				<col txt="84.38 °F" val="0" vt="0"/>
+			</row>
+			<row>
+				<col txt="07-28-2020 08:00:01 pm" val="1595980801" vt="30"/>
+				<col txt="43.857367, -79.236183" val="0" vt="0"/>
+				<col txt="6 Upper Ridge Ct, Markham, ON L3S, Canada" val="0" vt="1"/>
+				<col txt="Temp Tag ID" val="0" vt="0"/>
+				<col txt="&quot;CT80083B&quot;" val="0" vt="0"/>
+			</row>
+			<row>
+				<col txt="07-28-2020 08:00:11 pm" val="1595980811" vt="30"/>
+				<col txt="43.857367, -79.236183" val="0" vt="0"/>
+				<col txt="6 Upper Ridge Ct, Markham, ON L3S, Canada" val="0" vt="1"/>
+				<col txt="Temperature" val="0" vt="0"/>
+				<col txt="84.56 °F" val="0" vt="0"/>
+			</row>
+			<row>
+				<col txt="07-28-2020 08:00:11 pm" val="1595980811" vt="30"/>
+				<col txt="43.857367, -79.236183" val="0" vt="0"/>
+				<col txt="6 Upper Ridge Ct, Markham, ON L3S, Canada" val="0" vt="1"/>
+				<col txt="Temp Tag ID" val="0" vt="0"/>
+				<col txt="&quot;CT80083B&quot;" val="0" vt="0"/>
+			</row>
+			<row>
+				<col txt="07-28-2020 08:00:21 pm" val="1595980821" vt="30"/>
+				<col txt="43.857365, -79.236183" val="0" vt="0"/>
+				<col txt="6 Upper Ridge Ct, Markham, ON L3S, Canada" val="0" vt="1"/>
+				<col txt="Temperature" val="0" vt="0"/>
+				<col txt="84.56 °F" val="0" vt="0"/>
+			</row>
+			<row>
+				<col txt="07-28-2020 08:00:21 pm" val="1595980821" vt="30"/>
+				<col txt="43.857365, -79.236183" val="0" vt="0"/>
+				<col txt="6 Upper Ridge Ct, Markham, ON L3S, Canada" val="0" vt="1"/>
+				<col txt="Temp Tag ID" val="0" vt="0"/>
+				<col txt="&quot;CT80083B&quot;" val="0" vt="0"/>
+			</row>
+			<row>
+				<col txt="07-28-2020 08:00:31 pm" val="1595980831" vt="30"/>
+				<col txt="43.857355, -79.236175" val="0" vt="0"/>
+				<col txt="6 Upper Ridge Ct, Markham, ON L3S, Canada" val="0" vt="1"/>
+				<col txt="Temperature" val="0" vt="0"/>
+				<col txt="84.56 °F" val="0" vt="0"/>
+			</row>
+			<row>
+				<col txt="07-28-2020 08:00:31 pm" val="1595980831" vt="30"/>
+				<col txt="43.857355, -79.236175" val="0" vt="0"/>
+				<col txt="6 Upper Ridge Ct, Markham, ON L3S, Canada" val="0" vt="1"/>
+				<col txt="Temp Tag ID" val="0" vt="0"/>
+				<col txt="&quot;CT80083B&quot;" val="0" vt="0"/>
+			</row>
+			<row>
+				<col txt="07-28-2020 08:00:41 pm" val="1595980841" vt="30"/>
+				<col txt="43.857267, -79.236142" val="0" vt="0"/>
+				<col txt="6 Upper Ridge Ct, Markham, ON L3S, Canada" val="0" vt="1"/>
+				<col txt="Temperature" val="0" vt="0"/>
+				<col txt="84.56 °F" val="0" vt="0"/>
+			</row>
+			<row>
+				<col txt="07-28-2020 08:00:41 pm" val="1595980841" vt="30"/>
+				<col txt="43.857267, -79.236142" val="0" vt="0"/>
+				<col txt="6 Upper Ridge Ct, Markham, ON L3S, Canada" val="0" vt="1"/>
+				<col txt="Temp Tag ID" val="0" vt="0"/>
+				<col txt="&quot;CT80083B&quot;" val="0" vt="0"/>
+			</row>
+			<row>
+				<col txt="07-28-2020 08:00:51 pm" val="1595980851" vt="30"/>
+				<col txt="43.857193, -79.236340" val="0" vt="0"/>
+				<col txt="5 Upper Ridge Ct, Markham, ON L3S, Canada" val="0" vt="1"/>
+				<col txt="Temperature" val="0" vt="0"/>
+				<col txt="84.56 °F" val="0" vt="0"/>
+			</row>
+			<row>
+				<col txt="07-28-2020 08:00:51 pm" val="1595980851" vt="30"/>
+				<col txt="43.857193, -79.236340" val="0" vt="0"/>
+				<col txt="5 Upper Ridge Ct, Markham, ON L3S, Canada" val="0" vt="1"/>
+				<col txt="Temp Tag ID" val="0" vt="0"/>
+				<col txt="&quot;CT80083B&quot;" val="0" vt="0"/>
+			</row>
+		</table>
+	</tables>
+</report>

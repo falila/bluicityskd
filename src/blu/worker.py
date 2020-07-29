@@ -72,6 +72,19 @@ class Worker(Thread):
         
         return sensors_notifications
 
+    def find_linked_row(self,cp_notification=None, o_notifications=None):
+        dual_row = []
+        for notif in cp_notification:
+
+            if len(dual_row) == 0 :
+                dual_row.append(notif)
+                continue
+                
+            elif len(dual_row) == 1 and dual_row[0].local_time == notif.local_time :
+                dual_row.append(notif)
+                o_notifications.remove(dual_row[0])
+                o_notifications.remove(dual_row[1])
+                return dual_row
 
     def save_to_db(self, directory, filename):
         download_path = os.path.join(directory, filename)
@@ -79,27 +92,32 @@ class Worker(Thread):
         records_to_save = []
         #extract unit nam from filename
         unit_name = filename.split('_')[0]
-        _records = []
-        for notif in notifications:
-            if len(_records) == 2 :
-                beacon_type = _records[0].data if "Serial" in  _records[0].sensor else _records[1].data
-                beacon_temp = _records[1].data
-                # due to the file inconsistency we try our best to guess it 
-                if "Temp" in _records[1].sensor :
-                    beacon_temp = _records[1].data
-                else :
-                    beacon_temp =  "N/A" 
 
-                records_to_save.append((Tracker(unit_name=unit_name,
-                                        coordinates=notif.coordinates,
-                                        locat=notif.locat ,sensor_serial=beacon_type, sensor_temp=beacon_temp, local_time=notif.local_time)))
-                _records.clear()
+        nb_notifications = len(notifications)
+        print(f"notif {nb_notifications}")
+
+        for i in range(1,nb_notifications//2):
+            dual_row = self.find_linked_row(cp_notification=notifications[:], o_notifications=notifications)
+            if not dual_row:
+                continue
+            print(f"in loop {i}")
+            print(f"dual: {dual_row}")
+            if "CT" in  dual_row[0].data:
+                beacon_serial = dual_row[0].data
+                beacon_temp =  dual_row[1].data
             else:
-                _records.append(notif)
+                beacon_serial = dual_row[1].data
+                beacon_temp =  dual_row[0].data
+
+            records_to_save.append((Tracker(unit_name=unit_name,
+                                        coordinates=dual_row[0].coordinates,
+                                        locat=dual_row[0].locat ,sensor_serial= beacon_serial, sensor_temp= beacon_temp, local_time=dual_row[0].local_time)))
             
         
         self.db_wrapper.add_records(records_to_save)
         logger.debug(f"{len(records_to_save)} records saved")
-           
+    
+
+
 if __name__ == "__main__":
     pass
