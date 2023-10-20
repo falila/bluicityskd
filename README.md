@@ -1,2 +1,2 @@
 # bluicityskd
-A CLI tool t enable bluicity services integration
+A CLI tool to enable bluicity services integration.
